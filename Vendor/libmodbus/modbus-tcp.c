@@ -716,7 +716,7 @@ modbus_t* modbus_new_tcp(const char *ip, int port)
     ctx->backend_data = (modbus_tcp_t *) malloc(sizeof(modbus_tcp_t));
     ctx_tcp = (modbus_tcp_t *)ctx->backend_data;
 
-    dest_size = sizeof(char) * 16;
+    dest_size = sizeof(char) * _MODBUS_TCP_PI_SERVICE_LENGTH;
     ret_size = strlcpy(ctx_tcp->ip, ip, dest_size);
     if (ret_size == 0) {
         fprintf(stderr, "The IP string is empty\n");
